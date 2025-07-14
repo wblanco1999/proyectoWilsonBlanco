@@ -45,5 +45,10 @@ public class Usuario {
         this.correoElectronico = correoElectronico;
     }
     
-    
+    public static void iniciarSesion(){
+        try {
+            
+        } catch (Exception e) {
+        }
+    }
 }
