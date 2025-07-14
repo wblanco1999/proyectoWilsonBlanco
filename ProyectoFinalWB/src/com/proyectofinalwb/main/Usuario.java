@@ -4,22 +4,25 @@
  */
 package com.proyectofinalwb.main;
 
+import java.io.Serializable;
+import java.util.ArrayList;
+
 /**
  *
  * @author wilsonblanco
  */
-public class Usuario {
+public class Usuario implements Serializable{
     private String usuario;
     private String passwd;
     private String correoElectronico;
+    private ArrayList<Transaccion> transacciones;
 
     public Usuario(String usuario, String passwd, String correoElectronico) {
         this.usuario = usuario;
         this.passwd = passwd;
         this.correoElectronico = correoElectronico;
+        this.transacciones = new ArrayList<>();
     }
-    
-    
     
     public String getUsuario() {
         return usuario;
@@ -45,10 +48,16 @@ public class Usuario {
         this.correoElectronico = correoElectronico;
     }
     
-    public static void iniciarSesion(){
-        try {
+    public void agregarTransaccion(String id, boolean egreso, double monto ){
+        this.transacciones.add(new Transaccion(id, egreso, monto));
+    }
+    
+    public String verTransacciones(){
+        String lista = "Transacciones hechas";
+        for(int i = 0; i < this.transacciones.size(); i++){
+            lista+= transacciones.get(i).toString();
             
-        } catch (Exception e) {
         }
+        return lista;
     }
 }

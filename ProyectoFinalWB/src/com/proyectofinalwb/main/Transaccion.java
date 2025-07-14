@@ -10,16 +10,32 @@ import java.util.Date;
  *
  * @author wilsonblanco
  */
+
+// La diferencia entre esta clase y gasto, es que la clase transacción confirma si un monto puede ser negativo u positivo.
+// Un gasto no necesariamente es algo que ya ha pasado, mientras que una transacción es  un movimiento que de dinero 
+// positivo o negativo en una cuenta.
 public class Transaccion {
     private String id;
     private Date fecha;
     private boolean egreso;
+    private double monto;
 
-    public Transaccion(String id, boolean egreso) {
+    public Transaccion(String id, boolean egreso, double monto) {
         this.id = id;
         this.egreso = egreso;
+        this.monto = monto;
     }
 
+    public double getMonto() {
+        return monto;
+    }
+
+    public void setMonto(double monto) {
+        this.monto = monto;
+    }
+    
+    
+    
     public String getId() {
         return id;
     }
@@ -43,6 +59,12 @@ public class Transaccion {
     public void setEgreso(boolean egreso) {
         this.egreso = egreso;
     }
+
+    @Override
+    public String toString() {
+        return "\nTransaccion" + "ID: " + id + " Fecha" + fecha + " Egreso: " + egreso+ "Monto: ₡"+monto;
+    }
+    
     
     
 }
