@@ -101,5 +101,5 @@ public class Ingreso {
     public String toString() {
         return "Ingreso{" + "id=" + id + ", tipoDeIngreso=" + tipoDeIngreso + ", totalImpuesto=" + totalImpuesto + ", salarioNeto=" + salarioNeto + '}';
     }
-    
+        
 }
