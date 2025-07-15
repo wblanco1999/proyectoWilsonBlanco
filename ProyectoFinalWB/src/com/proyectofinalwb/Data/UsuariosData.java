@@ -39,6 +39,7 @@ public class UsuariosData {
         ObjectOutputStream output = new ObjectOutputStream(new FileOutputStream(archivo));
         output.writeUnshared(usuarios);
         output.close();
+        JOptionPane.showMessageDialog(null, "Usuario " + usuario.getUsuario()+ " registrado exitosamete.");
         return false;
     }
     public void iniciarSesion(String usuario, String passwd)throws FileNotFoundException, IOException, ClassNotFoundException {
@@ -48,7 +49,7 @@ public class UsuariosData {
             usuarios = recuperarUsuarios();
             for(int i = 0; i < usuarios.size(); i++){
                 if(usuario.equals(usuarios.get(i).getUsuario()) && passwd.equals(usuarios.get(i).getPasswd())){
-                    String texto = "Bienvenido "+usuarios.get(i).getUsuario();
+                    JOptionPane.showMessageDialog(null, "Bienvenido "+usuarios.get(i).getUsuario());
                     encontrado = true;
                 }
             }
