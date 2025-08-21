@@ -136,17 +136,17 @@ public class NuevoDiccionario extends javax.swing.JFrame {
     }//GEN-LAST:event_guardarTerminoActionPerformed
 
     private void guardarDiccionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardarDiccionarioActionPerformed
-        File archivo = new File("Diccionario<Wilson>");
-
+       
         try {
+            File archivo = new File("Diccionario<Wilson>");
             Diccionario diccionario = new Diccionario(nuevoSetTerminos);
             diccionario.ordenarAlfabeticamente();
             ObjectOutputStream output = new ObjectOutputStream(new FileOutputStream(archivo));
             output.writeUnshared(diccionario);
             output.close();
-
+            JOptionPane.showMessageDialog(areaConcepto, "Se ha guardado el diccionario exitosamente!");
         } catch (Exception ex) {
-
+            JOptionPane.showMessageDialog(areaConcepto, "Error al guardar " + ex.getMessage());
         }
     }//GEN-LAST:event_guardarDiccionarioActionPerformed
 

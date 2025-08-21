@@ -16,8 +16,13 @@ public class Diccionario implements Serializable {
     private ArrayList<Termino> terminos;
 
     public Diccionario(ArrayList<Termino> terminos) {
-        this.terminos = new ArrayList<>();
+        this.terminos = new ArrayList<Termino>(terminos);
     }
+
+    public Diccionario() {
+        
+    }
+    
 
     public ArrayList<Termino> getTerminos() {
         return terminos;
@@ -46,11 +51,11 @@ public class Diccionario implements Serializable {
                 return terminos.get(i).getConcepto();
                 
             }
+        
+        }
         if(!buscador){
             return "No se ha encontrado ninguna palabra";
         }
-                
-        }
-        return "No se ha encontrado ninguna palabra";
+        return "";
     }
 }

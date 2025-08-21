@@ -65,15 +65,16 @@ public class vLogin extends JPanel implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == registerButton) {
             this.pPrincipal.mostrarPanelRegistrar();
-        } else if (e.getSource() == loginButton) {
+            } 
+        else if (e.getSource() == loginButton) {
             try {
-                UsuariosData u = new UsuariosData();
+                
                 char[] passwordChars = passwd.getPassword();
                 String password = new String(passwordChars);
-                u.iniciarSesion(usernameField.getText(), password);
+                
             } catch (Exception ex) {
-
-            } finally{
+                
+            } finally {
                 passwd.setText("");
                 usernameField.setText("");
             }

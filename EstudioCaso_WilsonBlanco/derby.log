@@ -1,0 +1,13 @@
+----------------------------------------------------------------
+Sat Aug 16 23:13:42 CST 2025:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.15.2.0 - (1873585): instance a816c00e-0198-b672-9fc7-000007465d70 
+on database directory /Users/wilsonblanco/Documents/progra/proyectoWilsonBlanco/EstudioCaso_WilsonBlanco/Terminos-WilsonBlanco with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@18ff02e4 
+Loaded from file:/Users/wilsonblanco/.m2/repository/org/apache/derby/derby/10.15.2.0/derby-10.15.2.0.jar
+java.vendor=Oracle Corporation
+java.runtime.version=23.0.1+11-39
+user.dir=/Users/wilsonblanco/Documents/progra/proyectoWilsonBlanco/EstudioCaso_WilsonBlanco
+os.name=Mac OS X
+os.arch=aarch64
+os.version=15.4.1
+derby.system.home=null
+Database Class Loader started - derby.database.classpath=''

@@ -107,25 +107,21 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private void botomBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botomBuscarActionPerformed
 
         try {
+            definicionArea.setText("");
             File archivo = new File("Diccionario<Wilson>");
-            Diccionario dic = new Diccionario(null);
+            Diccionario dic = new Diccionario();
             if (archivo.exists()) {
                 ObjectInputStream input = new ObjectInputStream(new FileInputStream(archivo));
                 Object aux = input.readObject();
                 dic = (Diccionario) aux;
-                try {
-                    
-                    definicionArea.setText(dic.buscarPalabra(barraBuscar.getText()));
-                    
-                } catch (Exception e) {
-                    JOptionPane.showMessageDialog(rootPane, "Error al buscar palabra");
-                }
                 input.close();
+                definicionArea.setText(dic.buscarPalabra(barraBuscar.getText()));
 
             } else {
                 JOptionPane.showMessageDialog(null, "Por favor, cree un diccionario antes de buscar palabras;");
             }
         } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Error al buscar " + e.getMessage());
         }
     }//GEN-LAST:event_botomBuscarActionPerformed
 

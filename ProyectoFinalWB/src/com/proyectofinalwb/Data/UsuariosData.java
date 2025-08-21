@@ -21,47 +21,29 @@ import javax.swing.JOptionPane;
  * @author wilsonblanco
  */
 public class UsuariosData {
+
     public UsuariosData() {
     }
-    
+
     public boolean registrarUsuario(Usuario usuario) throws FileNotFoundException, IOException, ClassNotFoundException {
 
         File archivo = new File("usuarios.dat");
         List<Usuario> usuarios = new ArrayList<>();
-        if(archivo.exists()){
-            List<Usuario> usuariosEnArchivo=recuperarUsuarios();
+        if (archivo.exists()) {
+            List<Usuario> usuariosEnArchivo = recuperarUsuarios();
             for (int i = 0; i < usuariosEnArchivo.size(); i++) {
                 usuarios.add(usuariosEnArchivo.get(i));
             }
         }
-        
+
         usuarios.add(usuario);
         ObjectOutputStream output = new ObjectOutputStream(new FileOutputStream(archivo));
         output.writeUnshared(usuarios);
         output.close();
-        JOptionPane.showMessageDialog(null, "Usuario " + usuario.getUsuario()+ " registrado exitosamete.");
+        JOptionPane.showMessageDialog(null, "Usuario " + usuario.getUsuario() + " registrado exitosamete.");
         return false;
     }
-    public void iniciarSesion(String usuario, String passwd)throws FileNotFoundException, IOException, ClassNotFoundException {
-        List<Usuario> usuarios = new ArrayList<>();
-        try{
-            boolean encontrado = false;
-            usuarios = recuperarUsuarios();
-            for(int i = 0; i < usuarios.size(); i++){
-                if(usuario.equals(usuarios.get(i).getUsuario()) && passwd.equals(usuarios.get(i).getPasswd())){
-                    JOptionPane.showMessageDialog(null, "Bienvenido "+usuarios.get(i).getUsuario());
-                    encontrado = true;
-                }
-            }
-            if(!encontrado){
-                String texto = "No se ha encontrado ningún usuario";
-            }
-            
-        } catch(Exception ex){
-            JOptionPane.showMessageDialog(null, "Por favor digite un usuario y contraseña");
-        }
-        
-    }
+
     public List<Usuario> recuperarUsuarios() throws FileNotFoundException, IOException, ClassNotFoundException {
         File archivo = new File("usuarios.dat");
         List<Usuario> usuarios = new ArrayList<>();
