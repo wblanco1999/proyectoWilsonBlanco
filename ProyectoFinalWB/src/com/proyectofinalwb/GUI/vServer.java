@@ -4,18 +4,25 @@
  */
 package com.proyectofinalwb.GUI;
 
+import com.proyectofinalwb.main.Servidor;
+
 /**
  *
  * @author wilsonblanco
  */
 public class vServer extends javax.swing.JFrame {
 
+    private Servidor server;
+
     /**
      * Creates new form vServer
      */
     public vServer() {
-        
+        this.server = new Servidor(this.jTextArea1);
+        server.start();
+
         initComponents();
+
     }
 
     /**
