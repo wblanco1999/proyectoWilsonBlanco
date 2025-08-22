@@ -5,6 +5,7 @@
 package com.proyectofinalwb.main;
 
 import com.proyectofinalwb.GUI.vPrincipal;
+import com.proyectofinalwb.GUI.vServer;
 
 /**
  *
@@ -17,6 +18,8 @@ public class Main {
      */
     public static void main(String[] args) {
         vPrincipal p = new vPrincipal();
+        vServer vs = new vServer();
+        vs.setVisible(true);
         p.setVisible(true);
     }
     

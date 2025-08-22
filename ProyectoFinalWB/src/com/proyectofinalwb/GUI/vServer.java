@@ -18,10 +18,11 @@ public class vServer extends javax.swing.JFrame {
      * Creates new form vServer
      */
     public vServer() {
+        initComponents();
         this.server = new Servidor(this.jTextArea1);
         server.start();
 
-        initComponents();
+        
 
     }
 
