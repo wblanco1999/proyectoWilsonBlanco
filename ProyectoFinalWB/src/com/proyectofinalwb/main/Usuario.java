@@ -4,32 +4,40 @@
  */
 package com.proyectofinalwb.main;
 
+import com.proyectofinalwb.dao.PresupuestoDAO;
+import com.proyectofinalwb.sql.PresupuestoSQL;
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.List;
 
-/**
- *
- * @author wilsonblanco
- */
-public class Usuario implements Serializable{
-    private String usuario;
+public class Usuario implements Serializable {
+
+    private String username;
     private String passwd;
-    private String correoElectronico;
-    private ArrayList<Transaccion> transacciones;
+    private String id;
+    private List<Presupuesto> presupuestos;
 
-    public Usuario(String usuario, String passwd, String correoElectronico) {
-        this.usuario = usuario;
+    public Usuario(String usuario, String passwd) {
+        this.username = usuario;
         this.passwd = passwd;
-        this.correoElectronico = correoElectronico;
-        this.transacciones = new ArrayList<>();
-    }
-    
-    public String getUsuario() {
-        return usuario;
+        this.id = ID.agregarID();
+        this.presupuestos = new ArrayList<>();
     }
 
-    public void setUsuario(String usuario) {
-        this.usuario = usuario;
+    public Usuario(String id) {
+        this.id = id;
+    }
+
+    public List<Presupuesto> getPresupuestos() {
+        return presupuestos;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getPasswd() {
@@ -40,24 +48,38 @@ public class Usuario implements Serializable{
         this.passwd = passwd;
     }
 
-    public String getCorreoElectronico() {
-        return correoElectronico;
+    public String getId() {
+        return id;
     }
 
-    public void setCorreoElectronico(String correoElectronico) {
-        this.correoElectronico = correoElectronico;
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public void agregarPresupuesto(Presupuesto p) {
+        presupuestos.add(p);
+    }
+
+    public List<Presupuesto> obtenerPresupuestos(Presupuesto p) {
+        PresupuestoDAO dao = new PresupuestoSQL();
+        this.presupuestos = dao.obtener(p);
+        return this.presupuestos;
+    }
+
+    public boolean eliminarPresupuesto(Presupuesto p) {
+        PresupuestoDAO dao = new PresupuestoSQL();
+        return dao.eliminar(p);
+    }
+
+    public boolean insertarPresupuesto(Presupuesto p) {
+        PresupuestoDAO dao = new PresupuestoSQL();
+        return dao.insertar(p);
+    }
+
+    public boolean modificarPresupuesto(Presupuesto p) {
+        PresupuestoDAO dao = new PresupuestoSQL();
+        return dao.modificar(p);
     }
     
-    public void agregarTransaccion(String id, boolean egreso, double monto ){
-        this.transacciones.add(new Transaccion(id, egreso, monto));
-    }
-    
-    public String verTransacciones(){
-        String lista = "Transacciones hechas";
-        for(int i = 0; i < this.transacciones.size(); i++){
-            lista+= transacciones.get(i).toString();
-            
-        }
-        return lista;
-    }
+
 }

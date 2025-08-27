@@ -13,17 +13,19 @@ import java.sql.DriverManager;
  */
 public class Conexion {
     private static final String SGBD = "com.mysql.cj.jdbc.Driver";
-    private static final String BBDD = "jdbc:mysql://localhost:3306/Entretenimiento";
+    private static final String BBDD = "jdbc:mysql://localhost:3306/Proyecto";
     private static final String usuario = "root";
     private static final String passwd = "Tsukuyomi1";
     
     public static Connection conexion(){
+        
     Connection conex = null;
     try {
         Class.forName(SGBD);
         conex = DriverManager.getConnection(BBDD, usuario, passwd);
     } catch(Exception e){
         System.out.println("Problemas al conectar");
+        System.out.println(e.getMessage());
     }
     return conex;
 }

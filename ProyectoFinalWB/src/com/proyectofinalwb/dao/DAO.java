@@ -4,14 +4,15 @@
  */
 package com.proyectofinalwb.dao;
 
+import java.util.List;
+
 /**
  *
  * @author wilsonblanco
  */
-public interface DAO<T, S> {
-    void insertar(T S);
-    void modificar(T S);
-    void obtener(T S);
-    void eliminar(T S);
-    void obtenerTodo(T S);
+public interface DAO<T> {
+    boolean insertar(T t);
+    boolean modificar(T t);
+    List<T> obtener(T t);
+    boolean eliminar(T t);
 }

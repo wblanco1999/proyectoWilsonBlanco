@@ -4,11 +4,14 @@
  */
 package com.proyectofinalwb.main;
 
+import com.proyectofinalwb.sql.IngresoSQL;
+import java.io.Serializable;
+
 /**
  *
  * @author wilsonblanco
  */
-public class Ingreso {
+public class Ingreso extends IngresoSQL implements Serializable{
     private String id;
     private String tipoDeIngreso;
     private final double CCSS = 0.108;
@@ -16,15 +19,35 @@ public class Ingreso {
     private double salarioBruto;
     private double totalImpuesto;
     private double salarioNeto;
+    private String presupuestoId;
 
-    public Ingreso(String id, String tipoDeIngreso, double salarioBruto) {
-        this.id = id;
+    public Ingreso(String tipoDeIngreso, double salarioBruto, String presupuestoId) {
+        this.id = ID.agregarID();
         this.tipoDeIngreso = tipoDeIngreso;
         this.salarioBruto = salarioBruto;
         calcularImpuestos(salarioBruto);
         calcularSalarioNeto(this.totalImpuesto, salarioBruto);
+        this.presupuestoId = presupuestoId;
     }
+
+    public Ingreso() {
+    }
+    
+    
+    public Ingreso(String id) {
+        this.presupuestoId = id;
         
+    }
+
+    public Ingreso(String id, String tipoDeIngreso, double salarioBruto, String presupuestoId) {
+        this.id = id;
+        this.tipoDeIngreso = tipoDeIngreso;
+        this.salarioBruto = salarioBruto;
+        this.presupuestoId = presupuestoId;
+    }
+    
+    
+    
     
     public String getId() {
         return id;
@@ -73,6 +96,16 @@ public class Ingreso {
     public void setSalarioNeto(double salarioNeto) {
         this.salarioNeto = salarioNeto;
     }
+
+    public String getPresupuestoId() {
+        return presupuestoId;
+    }
+
+    public void setPresupuestoId(String presupuestoId) {
+        this.presupuestoId = presupuestoId;
+    }
+    
+    
     
     public void calcularImpuestos(double salarioBruto){
         if(salarioBruto > 922000.00){

@@ -4,7 +4,7 @@
  */
 package com.proyectofinalwb.main;
 
-import com.proyectofinalwb.GUI.vPrincipal;
+import com.proyectofinalwb.GUI.vInicio;
 import com.proyectofinalwb.GUI.vServer;
 
 /**
@@ -17,10 +17,15 @@ public class Main {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        vPrincipal p = new vPrincipal();
-        vServer vs = new vServer();
-        vs.setVisible(true);
-        p.setVisible(true);
+        try {
+            vInicio vi = new vInicio();
+            vServer vs = new vServer();
+            vi.setVisible(true);
+            vs.setVisible(true);
+        } catch (Exception e) {
+
+        }
+
     }
-    
+
 }

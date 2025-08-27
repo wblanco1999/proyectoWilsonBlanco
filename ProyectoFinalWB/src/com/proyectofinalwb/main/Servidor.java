@@ -23,6 +23,7 @@ public class Servidor extends Thread {
 
     @Override
     public void run() {
+        
         bitacora.append("Iniciando servidor...");
         try (ServerSocket serverSocket = new ServerSocket(PUERTO)) {
             bitacora.append("\nIniciado exitosamente.");

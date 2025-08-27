@@ -10,6 +10,6 @@ import com.proyectofinalwb.main.Ingreso;
  *
  * @author wilsonblanco
  */
-public interface IngresoDAO extends DAO<Ingreso, String> {
+public interface IngresoDAO extends DAO<Ingreso> {
     
 }
